@@ -2,7 +2,7 @@
   width: 100%;
   padding: 24px;
   border-radius: 12px;
-  background-color: var(--color-background-toggle);
+  background-color: var(--color-backgroundToggle);
   display: grid;
   grid-template-columns: repeat(4,1fr);
   column-gap: 13px;
@@ -21,22 +21,22 @@
   border:none;
   font-size: 28px;
   font-weight: 700;
-  background: var(--color-key-background);
-  color:var(--color-text-dark);
-  box-shadow: 0px 4px 0px var(--color-key-shadow);
+  background: var(--color-keyBackground);
+  color:var(--color-textDark);
+  box-shadow: 0px 4px 0px var(--color-keyShadow);
   
   &:hover{
     transform: translateY(1px);
-    box-shadow: 0px 3px 0px var(--color-key-shadow);
+    box-shadow: 0px 3px 0px var(--color-keyShadow);
   }
   &--alt{
-  background: var(--color-key-background-alt);
-  color:var(--color-text-light);
-  box-shadow: 0px 4px 0px var(--color-key-shadow-alt);
+  background: var(--color-keyBackgroundAlt);
+  color:var(--color-textKeyAlt);
+  box-shadow: 0px 4px 0px var(--color-keyShadowAlt);
   font-size:16px;
   text-transform: uppercase;
     &:hover{
-      box-shadow: 0px 3px 0px var(--color-key-shadow-alt);
+      box-shadow: 0px 3px 0px var(--color-keyShadowAlt);
     }
 }
   &__wider{
@@ -44,13 +44,13 @@
     width:100%;
   }
   &--toggle{
-    background: var(--color-key-toggle);
-    color:var(--color-text-light);
-    box-shadow: 0px 4px 0px var(--color-key-toggle-shadow);
+    background: var(--color-keyToggle);
+    color:var(--color-textLight);
+    box-shadow: 0px 4px 0px var(--color-keyToggleShadow);
     font-size:16px;
     text-transform: uppercase;
     &:hover{
-      box-shadow: 0px 3px 0px var(--color-key-toggle-shadow);
+      box-shadow: 0px 3px 0px var(--color-keyToggleShadow);
     }
   }
   @media (min-width:768px){

@@ -3,17 +3,17 @@ class Calculator {
     numberBtns,
     operatorBtns,
     deleteBtn,
-    dotBtn,
+    decimalBtn,
     resetBtn,
-    equalBtn,
+    computeBtn,
     display
   ) {
-    this.numbersBtn = numberBtns;
+    this.numberBtns = numberBtns;
     this.operatorBtns = operatorBtns;
     this.deleteBtn = deleteBtn;
-    this.dotBtn = dotBtn;
+    this.decimalBtn = decimalBtn;
     this.resetBtn = resetBtn;
-    this.equalBtn = equalBtn;
+    this.computeBtn = computeBtn;
     this.display = display;
     this.operators = ["+", "-", "*", "/"];
     this.totalChar = 0;
