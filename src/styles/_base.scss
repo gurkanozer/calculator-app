@@ -1,0 +1,118 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Spartan", sans-serif;
+}
+:root {
+  //Backgrounds
+  --color-background-main: #3a4764;
+  --color-background-toggle: #232c43; //keypad background
+  --color-background-screen: #182034;
+  //Keys
+  --color-key-background: #eae3dc;
+  --color-key-shadow: #b4a597;
+  --color-key-background-alt: #637097;
+  --color-key-shadow-alt: #404e72;
+  --color-key-toggle: #d03f2f; //key background
+  --color-key-toggle-shadow: #93261a;
+  //Text
+  --color-text-light: #ffffff;
+  --color-text-dark: #444b5a;
+}
+
+body {
+  font-family: "Spartan", sans-serif;
+  // font-size: 32px;
+  font-size: 28px;
+  font-weight: 700;
+  background-color: var(--color-background-main);
+  color: var(--color-text-light);
+}
+.container {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  max-width: 588px;
+  height: 100%;
+  min-height: 100vh;
+  padding: 0 24px;
+  @media (min-width:768px){
+    justify-content: center;
+  }
+}
+main {
+  width: 100%;
+}
+header {
+  width: 100%;
+  height: 104px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  // @media (min-width:768px){
+  //   height: 78px;
+  // }
+}
+
+.theme-switch{
+  display:flex;
+  align-items: flex-end;
+  &__text{
+    font-size:12px;
+    letter-spacing: 2px;
+    line-height: 26px;
+    margin-right: 26px;
+    text-transform: uppercase;
+    user-select: none;
+  }
+  &__container{
+    cursor: pointer;
+    font-size:12px;
+    height:48px;
+    width:24px;
+    text-align: center;
+    position: relative;
+    user-select: none;
+  }
+  &__input{
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    &:checked ~ .theme-switch__checkmark::after{
+      opacity: 1;
+    }
+  }
+  &__checkmark{
+    position: absolute;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:26px;
+    background:var(--color-background-toggle);
+    &::after{
+      content: '';
+      position: absolute;
+      width:15px;
+      height:15px;
+      border-radius: 100%;
+      background-color: var(--color-key-toggle);
+      left:4px;
+      top:5px;
+      opacity: 0;
+    }
+  }
+  &--checkmark-left{
+    border-top-left-radius: 50%;
+    border-bottom-left-radius: 50%;
+  }
+  &--checkmark-right{
+    border-top-right-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+}

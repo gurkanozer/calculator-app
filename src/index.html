@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../images/favicon-32x32.png"
+    />
+    <title>Calculator app</title>
+  </head>
+
+  <body>
+    <div class="container">
+      <header>
+        <span>calc</span>
+        <div class="theme-switch">
+          <span class="theme-switch__text">theme</span>
+          <label class="theme-switch__container"
+            >1
+            <input
+              class="theme-switch__input"
+              type="radio"
+              checked="checked"
+              name="theme-switch"
+            />
+            <span
+              class="theme-switch__checkmark theme-switch--checkmark-left"
+            ></span>
+          </label>
+          <label class="theme-switch__container"
+            >2
+            <input
+              class="theme-switch__input"
+              type="radio"
+              name="theme-switch"
+            />
+            <span class="theme-switch__checkmark"></span>
+          </label>
+          <label class="theme-switch__container"
+            >3
+            <input
+              class="theme-switch__input"
+              type="radio"
+              name="theme-switch"
+            />
+            <span
+              class="theme-switch__checkmark theme-switch--checkmark-right"
+            ></span>
+          </label>
+        </div>
+      </header>
+      <main>
+        <div class="display">0</div>
+        <div class="keypad">
+          <button class="key key-number" value="7">7</button>
+          <button class="key key-number" value="8">8</button>
+          <button class="key key-number" value="9">9</button>
+          <button class="key key--alt" id="key-delete">Del</button>
+          <button class="key key-number" value="4">4</button>
+          <button class="key key-number" value="5">5</button>
+          <button class="key key-number" value="6">6</button>
+          <button class="key key-operator" value="+">+</button>
+          <button class="key key-number" value="1">1</button>
+          <button class="key key-number" value="2">2</button>
+          <button class="key key-number" value="3">3</button>
+          <button class="key key-operator" value="-">-</button>
+          <button class="key" id="key-dot">.</button>
+          <button class="key key-number" value="0">0</button>
+          <button class="key key-operator" value="/">/</button>
+          <button class="key key-operator" value="*">x</button>
+          <button class="key key__wider key--alt" id="key-reset">Reset</button>
+          <button class="key key__wider key--toggle" id="key-compute">=</button>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
