@@ -86,8 +86,8 @@ class Calculator {
   }
   pressedDeleteKey() {
     let display = this.display.innerHTML;
-
-    if (display.length > 1) {
+    if (display === "NaN") this.display.innerHTML = 0;
+    else if (display.length > 1) {
       this.display.innerHTML = this._numberWithCommas(
         display.substring(0, display.length - 1)
       );
