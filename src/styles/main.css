@@ -235,6 +235,12 @@ header {
   text-transform: uppercase;
 }
 
+@media (min-width: 768px) {
+  .key--alt {
+    font-size: 28px;
+  }
+}
+
 .key--alt:hover {
   -webkit-box-shadow: 0px 3px 0px var(--color-keyShadowAlt);
           box-shadow: 0px 3px 0px var(--color-keyShadowAlt);
