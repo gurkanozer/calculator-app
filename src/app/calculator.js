@@ -16,6 +16,7 @@ class Calculator {
     this.equalBtn = equalBtn;
     this.display = display;
     this.operators = ["+", "-", "*", "/"];
+    this.totalChar = 0;
   }
   //PRIVATE FUNCTIONS
   _getLastNumber(item, op) {
@@ -30,32 +31,52 @@ class Calculator {
       .toString()
       .replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
+  _decimalCounter(x) {
+    let counter = 0;
+    let found = false;
+    x.split("").forEach((y) => {
+      if (y === ".") found = true;
+      if (found) {
+        counter++;
+      }
+    });
+    return counter;
+  }
   //GLOBAL FUNCTIONS
   pressedNumberKey(e) {
     const { value } = e.target;
     let currentDisplay = this.display.innerHTML;
-    if (currentDisplay == "0" || currentDisplay == "NaN") {
-      this.display.innerHTML = value;
-    } else {
-      this.display.innerHTML = this._numberWithCommas(
-        this.display.innerHTML + value
-      );
-    }
+    let zeros = this._decimalCounter(
+      this._getLastNumber(currentDisplay, /[+ * \/ -]/)
+    );
+    if (zeros < 5 && this.totalChar < 16)
+      if (currentDisplay == "0" || currentDisplay == "NaN") {
+        this.display.innerHTML = value;
+      } else {
+        this.display.innerHTML = this._numberWithCommas(
+          this.display.innerHTML + value
+        );
+        this.totalChar++;
+      }
   }
   pressedOperatorKey(e) {
     const { value } = e.target;
     let display = this.display.innerHTML;
     let lastItem = this._getLastNumber(display, "");
-    if (this.operators.indexOf(lastItem) > -1 || lastItem === ".") {
-      this.display.innerHTML = display.substring(0, display.length - 1) + value;
-    } else {
-      this.display.innerHTML += value;
-    }
+    if (this.totalChar < 16)
+      if (this.operators.indexOf(lastItem) > -1 || lastItem === ".") {
+        this.display.innerHTML =
+          display.substring(0, display.length - 1) + value;
+      } else {
+        this.display.innerHTML += value;
+        this.totalChar++;
+      }
   }
   pressedResetKey() {
     this.display.innerHTML = "0";
+    this.totalChar = 0;
   }
-  pressedDotKey() {
+  pressedDecimalKey() {
     let display = this.display.innerHTML;
     let partial = this._getLastNumber(display, /[+ * \/ -]/);
     let result = partial.indexOf(".");
@@ -66,11 +87,15 @@ class Calculator {
   pressedDeleteKey() {
     let display = this.display.innerHTML;
 
-    if (display.length > 1)
+    if (display.length > 1) {
       this.display.innerHTML = this._numberWithCommas(
         display.substring(0, display.length - 1)
       );
-    else this.display.innerHTML = 0;
+      this.totalChar--;
+    } else {
+      this.display.innerHTML = 0;
+      this.totalChar = 0;
+    }
   }
   pressedComputeKey() {
     let result;
@@ -82,7 +107,12 @@ class Calculator {
     else result = new Function("return " + data)();
     this.counter = 0;
     this.operationCount = 0;
-    this.display.innerHTML = this._numberWithCommas(String(result));
+    this.totalChar = 0;
+    if (result === "NaN") this.display.innerHTML = "NaN";
+    else
+      this.display.innerHTML = this._numberWithCommas(
+        String(parseFloat(result.toFixed(4)))
+      );
   }
 }
 export default Calculator;

@@ -4,7 +4,7 @@ import { run, Calculator } from "./app";
 const numberBtns = document.querySelectorAll(".key-number");
 const operatorBtns = document.querySelectorAll(".key-operator");
 const deleteBtn = document.querySelector("#key-delete");
-const dotBtn = document.querySelector("#key-dot");
+const decimalBtn = document.querySelector("#key-decimal");
 const resetBtn = document.querySelector("#key-reset");
 const equalBtn = document.querySelector("#key-compute");
 //THEME SWITCH
@@ -16,7 +16,7 @@ const calculator = new Calculator(
   numberBtns,
   operatorBtns,
   deleteBtn,
-  dotBtn,
+  decimalBtn,
   resetBtn,
   equalBtn,
   display
@@ -35,8 +35,8 @@ operatorBtns.forEach((operatorBtn) => {
 resetBtn.addEventListener("click", (e) => {
   calculator.pressedResetKey();
 });
-dotBtn.addEventListener("click", () => {
-  calculator.pressedDotKey();
+decimalBtn.addEventListener("click", () => {
+  calculator.pressedDecimalKey();
 });
 deleteBtn.addEventListener("click", () => {
   calculator.pressedDeleteKey();
